@@ -13,6 +13,9 @@
 #             # completion_dict.pop(val)
 #             return val
 
+
+
+# zip를 이용한 방법
 def solution(participant, completion):
     participant_sort = sorted(participant)
     completion_sort = sorted(completion)
@@ -25,3 +28,10 @@ def solution(participant, completion):
 
 print(solution(	["marina", "josipa", "nikola", "vinko", "filipa"], ["josipa", "filipa", "marina", "nikola"]))
 print(solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "ana", "mislav"]))
+
+import collections
+def solution(participant, completion):
+    answer = collections.Counter(participant) - collections.Counter(completion)  # Counter 객체는 뺄셈이 가능
+    # answer = Counter({key : value})  value가 0이면 hash에서 사라짐
+    print(answer)
+solution(["marina", "josipa", "nikola", "vinko", "filipa"], ["josipa", "filipa", "marina", "nikola"])
